@@ -9,4 +9,8 @@ setup(
     py_modules=['list_dict_DB'],
     long_description=open('readme.md').read(),
     version='20170909',
+    description='in memory database like object with O(1) queries',
+    url='https://github.com/Jwink3101/list_dict_db',
+    author='Justin Winokur',
+    author_email='Jwink3101@gmail.com',
 )
