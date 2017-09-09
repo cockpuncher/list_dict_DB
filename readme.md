@@ -13,6 +13,12 @@ It passes all tests (with **100% test coverage**) on Python 2.7 and Python 3.5
 
 I am not a database expert. This simple met my needs.
 
+## Install
+
+Simply
+
+    pip install list_dict_DB
+
 ## Usage:
 
 For more full example usage, including the flexible query methods, see the tests.
@@ -202,7 +208,7 @@ There is 100% (!!!) test coverage. Of course that doesn't mean there aren't bugs
 [tinydb]:https://tinydb.readthedocs.io/en/latest/
 [buzhug]:http://buzhug.sourceforge.net/
 
-[^cpu]: Of course, Python really only uses one at a time for these tests
+
 
 
 
