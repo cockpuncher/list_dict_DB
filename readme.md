@@ -1,15 +1,14 @@
-# list_dict_db
+# list_dict_DB
 
-A simple *in memory* database like object. It is very simple and designed for
-small to medium databases which can exist purely in memory. It intended for situations where query speed is prioritized over memory usage and instantiation time.
+A simple *in memory* database like object. Replace list of dictionaries with a fast, O(1) lookup, data structure. Also supports multiple items via a list.
+
+It is very simple and designed for small to medium databases which can exist purely in memory. It intended for situations where query speed is prioritized over memory usage and instantiation time.
 
 I built it because I was querying a list of dictionaries by multiple keys *inside* of a loop. That cause an O(N^2) complexity and made my moderately-sized 30,000 item list intractable!
 
-It is designed to replace iterating over list of dictionary items.
+There are other solutions out there that are more traditionally database focused such as [TinyDB][tinydb], [buzhug][buzhug], etc, but this is purely in-memory and very fast. It is likely at the cost of extra memory overhead.
 
-There are other solutions out there that are more traditionally database focused such as [TinyDB][tinydb], [buzhug][buzhug], etc. 
-
-It passes all tests (with **100% test coverage**) on Python 2.7 and Python 3.5
+It passes all tests (with **100% test coverage**) on Python 2.7 and Python 3.6
 
 I am not a database expert. This simple met my needs.
 
@@ -198,8 +197,8 @@ There is 100% (!!!) test coverage. Of course that doesn't mean there aren't bugs
 
 * The entire DB exists in memory
 * Serializing (dumping) is not included though is easy to do with JSON or the like. See above
-* The index used in the dictionary is itself a dictionary with keys as any value. Since these are all done as pointers to original list, the memory footprint should be small
-* This is **not** designed to be a database across many threads, processes, or instances. It is designed as a data-structure of sorts
+* The index used in the dictionary is itself a dictionary with keys as any value. Since these are all done as pointers to original list, the memory footprint should be small.
+* This has **not** been tested for thread-safety!
 
 
 [pandas]:http://pandas.pydata.org/
