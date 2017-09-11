@@ -8,9 +8,9 @@ import types
 
 class list_dict_DB(object):
 
-    def __init__(self,items=[],attributes=None,default_attribute=None,  \
-                    exclude_attributes=[],                              \
-                    allowMultipleEdit=False,alwaysReturnList=True,      \
+    def __init__(self,items=None,attributes=None,default_attribute=None,  \
+                    exclude_attributes=None,                              \
+                    allowMultipleEdit=False,alwaysReturnList=True,        \
                     indexObjects=False):
         """
         Create a multi-item DB from a list of dictionaries that may be
@@ -24,7 +24,7 @@ class list_dict_DB(object):
         Inputs:
         --------
 
-        items  [`[]`] (list)
+        items  [ *empty* ] (list)
             List of dictionaries with each attribute
         
         attributes [None] (list, None)
@@ -36,7 +36,7 @@ class list_dict_DB(object):
                   attributes. They just won't be indexed. 
                   Or use add_attribute()
         
-        exclude_attributes [ `[]` ] (list)
+        exclude_attributes [ *empty* ] (list)
             Attributes that shouldn't ever be added even if attributes=None 
             for dynamic addition of attributes.
         
@@ -85,6 +85,13 @@ class list_dict_DB(object):
               query by index.
 
         """
+        
+        # Handle inputs
+        if items is None:
+            items = list()
+
+        if exclude_attributes is None:
+            exclude_attributes = list()
 
         self.allowMultipleEdit = allowMultipleEdit
         self.alwaysReturnList = alwaysReturnList        
@@ -610,7 +617,7 @@ class _emptyList(object):
     def __hash__(self):
         return 9999999999999
     def __eq__(self,other):
-        return isinstance(other,list) and len(other)==0
+        return isinstance(other,list) and len(other)==0 
         
 class Qobj(object):
     """
